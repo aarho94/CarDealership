@@ -63,7 +63,7 @@ public class UserInterface {
                     break;
                 case 99:
                     System.out.println("Exiting the program. Goodbye!");
-                    return; // Exit the program
+                    return;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
@@ -185,7 +185,6 @@ public class UserInterface {
 
         dealership.addVehicle(vehicle);
 
-        // Save the dealership to a new CSV file
         saveDealershipToFile(dealership);
 
         System.out.println("Vehicle added successfully!");
@@ -206,7 +205,6 @@ public class UserInterface {
         if (vehicleToRemove != null) {
             dealership.removeVehicle(vehicleToRemove);
 
-            // Save the dealership to a new CSV file
             saveDealershipToFile(dealership);
 
             System.out.println("Vehicle removed successfully!");
@@ -217,17 +215,14 @@ public class UserInterface {
 
     private static final String DELIMITER = "|";
 
-    // saveDealershipToFile method
     private void saveDealershipToFile(Dealership dealership) {
-        // Generate a new file name using timestamp
         String fileName = "inventory_" + System.currentTimeMillis() + ".csv";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            // Write dealership information to the file
+
             writer.write(dealership.getName() + DELIMITER + dealership.getAddress() + DELIMITER + dealership.getPhone());
             writer.newLine();
 
-            // Write each vehicle information to the file
             for (Vehicle vehicle : dealership.getAllVehicles()) {
                 writer.write(vehicle.getVin() + DELIMITER + vehicle.getYear() + DELIMITER + vehicle.getMake() + DELIMITER +
                         vehicle.getModel() + DELIMITER + vehicle.getVehicleType() + DELIMITER + vehicle.getColor() + DELIMITER +
