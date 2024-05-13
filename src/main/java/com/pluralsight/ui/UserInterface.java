@@ -173,7 +173,6 @@ public class UserInterface
 
     private void processAddVehicleRequest()
     {
-        // Prompt user to enter vehicle details
         System.out.println("Enter vehicle details:");
         System.out.print("VIN: ");
         int vin = scanner.nextInt();
@@ -206,7 +205,6 @@ public class UserInterface
         System.out.print("Enter VIN of vehicle to remove: ");
         int vin = scanner.nextInt();
 
-        // Find vehicle in the dealership
         Vehicle vehicleToRemove = null;
         for (Vehicle vehicle : dealership.getAllVehicles()) {
             if (vehicle.getVin() == vin) {
@@ -216,10 +214,8 @@ public class UserInterface
         }
 
         if (vehicleToRemove != null) {
-            // Remove vehicle from the dealership
             dealership.removeVehicle(vehicleToRemove);
 
-            // Save the dealership to file
             DealershipFileManager dealershipFileManager = new DealershipFileManager();
             dealershipFileManager.saveDealership(dealership);
 
