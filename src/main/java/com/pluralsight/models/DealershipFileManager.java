@@ -1,16 +1,13 @@
 package com.pluralsight.models;
 
 import java.io.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class DealershipFileManager {
     private static final String FILE_PATH = "src/main/java/com/pluralsight/files/inventory.csv";
     private static final String DELIMITER = "|";
 
-    // Method to save dealership to file
     public static void saveDealership(List<Vehicle> vehicles) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
             for (Vehicle vehicle : vehicles) {
@@ -25,7 +22,6 @@ public class DealershipFileManager {
         }
     }
 
-    // Method to load dealership from file
     public static List<Vehicle> loadDealership() {
         List<Vehicle> vehicles = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
