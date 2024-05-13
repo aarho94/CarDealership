@@ -4,6 +4,7 @@ import com.pluralsight.models.Dealership;
 import com.pluralsight.models.DealershipFileManager;
 import com.pluralsight.models.Vehicle;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -120,13 +121,18 @@ public class UserInterface {
     }
 
     private void processGetByMileageRequest() {
-        System.out.print("Enter minimum mileage: ");
-        int minMileage = scanner.nextInt();
-        System.out.print("Enter maximum mileage: ");
-        int maxMileage = scanner.nextInt();
+        try {
+            System.out.print("Enter minimum mileage: ");
+            int minMileage = scanner.nextInt();
+            System.out.print("Enter maximum mileage: ");
+            int maxMileage = scanner.nextInt();
 
-        List<Vehicle> vehicles = dealership.getVehiclesByMileage(minMileage, maxMileage);
-        displayVehicles(vehicles);
+            List<Vehicle> vehicles = dealership.getVehiclesByMileage(minMileage, maxMileage);
+            displayVehicles(vehicles);
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a valid integer for mileage.");
+            scanner.next(); // consume invalid input
+        }
     }
 
     private void processGetByVehicleTypeRequest() {
