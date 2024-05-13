@@ -1,19 +1,33 @@
 package com.pluralsight.models;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter; // Add import statement
-import java.io.FileReader;
-import java.io.FileWriter; // Add import statement
-import java.io.IOException;
+import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DealershipFileManager {
     private static final String FILE_PATH = "src/main/java/com/pluralsight/files/inventory.csv";
     private static final String DELIMITER = "|";
 
-    public static Dealership getDealership() {
-        Dealership dealership = new Dealership("", "", "");
+    // Method to save dealership to file
+    public static void saveDealership(List<Vehicle> vehicles) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
+            for (Vehicle vehicle : vehicles) {
+                writer.write(vehicle.getVin() + DELIMITER + vehicle.getYear() + DELIMITER + vehicle.getMake() + DELIMITER +
+                        vehicle.getModel() + DELIMITER + vehicle.getVehicleType() + DELIMITER + vehicle.getColor() + DELIMITER +
+                        vehicle.getOdometer() + DELIMITER + vehicle.getPrice());
+                writer.newLine();
+            }
+            System.out.println("Dealership data saved to " + FILE_PATH);
+        } catch (IOException e) {
+            System.err.println("Error writing dealership file: " + e.getMessage());
+        }
+    }
+
+    // Method to load dealership from file
+    public static List<Vehicle> loadDealership() {
+        List<Vehicle> vehicles = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -29,28 +43,12 @@ public class DealershipFileManager {
                     double price = Double.parseDouble(parts[7].trim());
 
                     Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
-                    dealership.addVehicle(vehicle);
+                    vehicles.add(vehicle);
                 }
             }
         } catch (IOException e) {
             System.err.println("Error reading dealership file: " + e.getMessage());
         }
-        return dealership;
-    }
-
-    public static void saveDealership(Dealership dealership) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
-            writer.write(dealership.getName() + DELIMITER + dealership.getAddress() + DELIMITER + dealership.getPhone());
-            writer.newLine();
-            for (Vehicle vehicle : dealership.getAllVehicles()) {
-                writer.write(vehicle.getVin() + DELIMITER + vehicle.getYear() + DELIMITER + vehicle.getMake() + DELIMITER +
-                        vehicle.getModel() + DELIMITER + vehicle.getVehicleType() + DELIMITER + vehicle.getColor() + DELIMITER +
-                        vehicle.getOdometer() + DELIMITER + vehicle.getPrice());
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            System.err.println("Error writing dealership file: " + e.getMessage());
-        }
+        return vehicles;
     }
 }
-

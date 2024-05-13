@@ -21,9 +21,14 @@ public class UserInterface {
     }
 
     private void init() {
-        DealershipFileManager dealershipFileManager = new DealershipFileManager();
-        this.dealership = dealershipFileManager.getDealership();
+        // Load dealership data from file
+        List<Vehicle> vehicles = DealershipFileManager.loadDealership();
+        this.dealership = new Dealership("", "", ""); // Assuming your Dealership class has a constructor to set name, address, and phone
+        for (Vehicle vehicle : vehicles) {
+            this.dealership.addVehicle(vehicle);
+        }
     }
+
 
     public void display() {
         System.out.println("Welcome to VehicleVault!");
