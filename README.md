@@ -38,65 +38,6 @@ Phase Five: Functionality Implementation
 5. Finalize and Document: Finalize the application, document the code, and ensure it meets all requirements.
 6. Compile and Push: Compile the final code, ensure there are no errors, and push it to the GitHub repository.
 
-+-----------------------------------+
-|             User Interface        |
-+-----------------------------------+
-| - dealership: Dealership          |
-| - scanner: Scanner                |
-+-----------------------------------+
-| + display()                      |
-| + processGetByPriceRequest()     |
-| + processGetByMakeModelRequest() |
-| + processGetByYearRequest()      |
-| + processGetByColorRequest()     |
-| + processGetByMileageRequest()   |
-| + processGetByVehicleTypeRequest()|
-| + processGetAllVehiclesRequest()|
-| + displayVehicles(List<Vehicle>) |
-| + processAddVehicleRequest()     |
-| + processRemoveVehicleRequest()  |
-+-----------------------------------+
-                  |
-                  | Uses
-                  |
-                  V
-+-----------------------------------+
-|            Dealership             |
-+-----------------------------------+
-| - name: String                    |
-| - address: String                 |
-| - phone: String                   |
-| - inventory: ArrayList<Vehicle>  |
-+-----------------------------------+
-| + getVehiclesByPrice(double,     |
-|        double)                    |
-| + getVehiclesByMakeModel(String,  |
-|        String)                    |
-| + getVehiclesByYear(int, int)    |
-| + getVehiclesByColor(String)      |
-| + getVehiclesByMileage(int, int) |
-| + getVehiclesByType(String)       |
-| + getAllVehicles()                |
-| + addVehicle(Vehicle)             |
-| + removeVehicle(Vehicle)          |
-| + getName()                       |
-| + getAddress()                    |
-| + getPhone()                      |
-+-----------------------------------+
-                  |
-                  | Uses
-                  |
-                  V
-+-----------------------------------+
-|        DealershipFileManager      |
-+-----------------------------------+
-| - FILE_PATH: String               |
-+-----------------------------------+
-| + getDealership()                 |
-| + saveDealership(Dealership)      |
-+-----------------------------------+
-
-
 
 Home Screen
 <img width="351" alt="VehicleVault Home Screen" src="https://github.com/aarho94/CarDealership/assets/166449365/be588162-70c3-4206-83d1-f9533bf2da42">
