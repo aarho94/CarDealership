@@ -17,27 +17,27 @@ public class Dealership {
     }
 
     public List<Vehicle> getVehiclesByPrice(double min, double max) {
-        return null; // Stub implementation
+        return null;
     }
 
     public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
-        return null; // Stub implementation
+        return null;
     }
 
     public List<Vehicle> getVehiclesByYear(int min, int max) {
-        return null; // Stub implementation
+        return null;
     }
 
     public List<Vehicle> getVehiclesByColor(String color) {
-        return null; // Stub implementation
+        return null;
     }
 
     public List<Vehicle> getVehiclesByMileage(int min, int max) {
-        return null; // Stub implementation
+        return null;
     }
 
     public List<Vehicle> getVehiclesByType(String vehicleType) {
-        return null; // Stub implementation
+        return null;
     }
 
     public List<Vehicle> getAllVehicles() {
@@ -49,6 +49,6 @@ public class Dealership {
     }
 
     public void removeVehicle(Vehicle vehicle) {
-        // Empty implementation
+
     }
 }

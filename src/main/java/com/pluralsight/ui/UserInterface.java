@@ -20,24 +20,19 @@ public class UserInterface
 
     private void init()
     {
-        // Create an instance of DealershipFileManager to load the dealership
         DealershipFileManager dealershipFileManager = new DealershipFileManager();
-        // Load the dealership using DealershipFileManager
         this.dealership = dealershipFileManager.getDealership();
     }
 
     public void display()
     {
-        // Display welcome message or any other initial information
         System.out.println("Welcome to the Car Dealership Inventory Tracking App!");
 
-        // Main user interface loop
         while (true) {
             displayMenu();
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
 
-            // Process user's choice
             switch (choice) {
                 case 1:
                     processGetByPriceRequest();
