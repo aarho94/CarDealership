@@ -4,6 +4,9 @@ import com.pluralsight.models.Dealership;
 import com.pluralsight.models.DealershipFileManager;
 import com.pluralsight.models.Vehicle;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -182,8 +185,8 @@ public class UserInterface {
 
         dealership.addVehicle(vehicle);
 
-        DealershipFileManager dealershipFileManager = new DealershipFileManager();
-        dealershipFileManager.saveDealership(dealership);
+        // Save the dealership to a new CSV file
+        saveDealershipToFile(dealership);
 
         System.out.println("Vehicle added successfully!");
     }
@@ -203,15 +206,38 @@ public class UserInterface {
         if (vehicleToRemove != null) {
             dealership.removeVehicle(vehicleToRemove);
 
-            DealershipFileManager dealershipFileManager = new DealershipFileManager();
-            dealershipFileManager.saveDealership(dealership);
+            // Save the dealership to a new CSV file
+            saveDealershipToFile(dealership);
 
             System.out.println("Vehicle removed successfully!");
         } else {
             System.out.println("Vehicle with VIN " + vin + " not found.");
         }
     }
+
+    private static final String DELIMITER = "|";
+
+    // saveDealershipToFile method
+    private void saveDealershipToFile(Dealership dealership) {
+        // Generate a new file name using timestamp
+        String fileName = "inventory_" + System.currentTimeMillis() + ".csv";
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            // Write dealership information to the file
+            writer.write(dealership.getName() + DELIMITER + dealership.getAddress() + DELIMITER + dealership.getPhone());
+            writer.newLine();
+
+            // Write each vehicle information to the file
+            for (Vehicle vehicle : dealership.getAllVehicles()) {
+                writer.write(vehicle.getVin() + DELIMITER + vehicle.getYear() + DELIMITER + vehicle.getMake() + DELIMITER +
+                        vehicle.getModel() + DELIMITER + vehicle.getVehicleType() + DELIMITER + vehicle.getColor() + DELIMITER +
+                        vehicle.getOdometer() + DELIMITER + vehicle.getPrice());
+                writer.newLine();
+            }
+            System.out.println("Dealership data saved to " + fileName);
+        } catch (IOException e) {
+            System.err.println("Error writing dealership file: " + e.getMessage());
+        }
+    }
 }
-
-
 
