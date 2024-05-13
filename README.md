@@ -51,6 +51,10 @@ Exception Handling on Calculator Page:
 
 <img width="458" alt="VehicleVault Exception Handling" src="https://github.com/aarho94/CarDealership/assets/166449365/590e4d67-d318-4795-94ed-0e29fc41800d">
 
-One piece of code I really enjoyed was getting more practice with To strings in my Vehicle class to populate entries to the inventory list:
+One piece of code I was really happy to get working was my saveDealershipToFile method:
 
-<img width="1071" alt="Screenshot 2024-05-12 at 11 39 47 PM" src="https://github.com/aarho94/CarDealership/assets/166449365/c9efa85b-a63f-48ae-a080-9aff7ae64fc8">
+<img width="1011" alt="saveDealershipToFile Method" src="https://github.com/aarho94/CarDealership/assets/166449365/25303a26-601b-4de3-bc49-734c5fd8d7d7">
+
+Specifically, I thought is was really to to be able to timestamp when changes were made using this line:
+
+<img width="548" alt="Time Stamp file line" src="https://github.com/aarho94/CarDealership/assets/166449365/94e148b5-7756-4b24-b5e0-67942fdb074f">
