@@ -55,6 +55,6 @@ One piece of code I was really happy to get working was my saveDealershipToFile 
 
 <img width="1011" alt="saveDealershipToFile Method" src="https://github.com/aarho94/CarDealership/assets/166449365/25303a26-601b-4de3-bc49-734c5fd8d7d7">
 
-Specifically, I thought is was really to to be able to timestamp when changes were made using this line:
+Specifically, I thought it was really cool to to be able to timestamp when changes were made using this line:
 
 <img width="548" alt="Time Stamp file line" src="https://github.com/aarho94/CarDealership/assets/166449365/94e148b5-7756-4b24-b5e0-67942fdb074f">
