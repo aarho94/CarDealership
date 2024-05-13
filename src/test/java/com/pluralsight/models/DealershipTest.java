@@ -8,28 +8,30 @@ public class DealershipTest {
     private Dealership dealership;
 
     @Test
-    public void testAddVehicle() {
-        // Create a vehicle to add to the dealership
+    public void testAddVehicle_shouldAddVehicle_toDealership() {
+        // Arrange
         Vehicle vehicle = new Vehicle(12345, 2020, "Toyota", "Camry", "Car", "Red", 10000, 25000.00);
 
-        // Add the vehicle to the dealership
+        // Act
         dealership.addVehicle(vehicle);
 
-        // Verify that the vehicle was added successfully
+        // Assert
         assertTrue(dealership.getAllVehicles().contains(vehicle));
     }
 
+
     @Test
-    public void testRemoveVehicle() {
-        // Create a vehicle and add it to the dealership
+    public void testRemoveVehicle_shouldRemoveVehicle_fromDealership() {
+        // Arrange
         Vehicle vehicle = new Vehicle(12345, 2020, "Toyota", "Camry", "Car", "Red", 10000, 25000.00);
         dealership.addVehicle(vehicle);
 
-        // Remove the vehicle from the dealership
+        // Act
         dealership.removeVehicle(vehicle);
 
-        // Verify that the vehicle was removed successfully
+        // Assert
         assertFalse(dealership.getAllVehicles().contains(vehicle));
     }
+
 
 }
