@@ -26,7 +26,6 @@ public class Dealership {
         return matchingVehicles;
     }
 
-
     public List<Vehicle> getVehiclesByYear(int minYear, int maxYear) {
         List<Vehicle> matchingVehicles = new ArrayList<>();
         for (Vehicle vehicle : inventory) {
@@ -68,7 +67,6 @@ public class Dealership {
     }
 
     public List<Vehicle> getVehiclesByPrice(double min, double max) {
-        // Implement logic to filter vehicles by price within the given range
         List<Vehicle> vehiclesInRange = new ArrayList<>();
         for (Vehicle vehicle : inventory) {
             if (vehicle.getPrice() >= min && vehicle.getPrice() <= max) {
@@ -77,8 +75,6 @@ public class Dealership {
         }
         return vehiclesInRange;
     }
-
-    // Implement similar methods for other search criteria (make, model, year, color, mileage, type)
 
     public List<Vehicle> getAllVehicles() {
         return inventory;
@@ -104,4 +100,5 @@ public class Dealership {
         return phone;
     }
 }
+
 
