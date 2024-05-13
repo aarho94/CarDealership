@@ -39,14 +39,18 @@ Phase Five: Functionality Implementation
 6. Compile and Push: Compile the final code, ensure there are no errors, and push it to the GitHub repository.
 
 
-Home Screen
+Home Screen:
+
 <img width="351" alt="VehicleVault Home Screen" src="https://github.com/aarho94/CarDealership/assets/166449365/be588162-70c3-4206-83d1-f9533bf2da42">
 
-Products Display Screen
+Products Display Screen:
+
 <img width="764" alt="VehicleVault Product Display" src="https://github.com/aarho94/CarDealership/assets/166449365/db8e245c-6ed9-4074-a44c-d7d1f013c7ea">
 
-Exception Handling on Calculator Page
+Exception Handling on Calculator Page:
+
 <img width="458" alt="VehicleVault Exception Handling" src="https://github.com/aarho94/CarDealership/assets/166449365/590e4d67-d318-4795-94ed-0e29fc41800d">
 
 One piece of code I really enjoyed was getting more practice with To strings in my Vehicle class to populate entries to the inventory list:
+
 <img width="1071" alt="Screenshot 2024-05-12 at 11 39 47 PM" src="https://github.com/aarho94/CarDealership/assets/166449365/c9efa85b-a63f-48ae-a080-9aff7ae64fc8">
