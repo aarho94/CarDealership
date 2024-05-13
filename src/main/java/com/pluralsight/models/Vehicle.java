@@ -21,8 +21,40 @@ public class Vehicle {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "VIN: " + vin + ", Year: " + year + ", Make: " + make + ", Model: " + model + ", Color: " + color + ", Price: " + price;
+    }
+
     public int getVin() {
         return vin;
     }
-}
 
+    public int getYear() {
+        return year;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getOdometer() {
+        return odometer;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+}

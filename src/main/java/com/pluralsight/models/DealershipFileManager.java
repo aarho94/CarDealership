@@ -1,18 +1,20 @@
 package com.pluralsight.models;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DealershipFileManager {
     private static final String FILE_PATH = "src/main/java/com/pluralsight/files/inventory.csv";
+    private static final String DELIMITER = "|";
 
     public static Dealership getDealership() {
         Dealership dealership = new Dealership("", "", "");
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
             String line = reader.readLine();
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
+                String[] parts = line.split("\\|");
                 if (parts.length == 8) {
                     int vin = Integer.parseInt(parts[0].trim());
                     int year = Integer.parseInt(parts[1].trim());
@@ -34,6 +36,17 @@ public class DealershipFileManager {
     }
 
     public static void saveDealership(Dealership dealership) {
-
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
+            writer.write(dealership.getName() + DELIMITER + dealership.getAddress() + DELIMITER + dealership.getPhone());
+            writer.newLine();
+            for (Vehicle vehicle : dealership.getAllVehicles()) {
+                writer.write(vehicle.getVin() + DELIMITER + vehicle.getYear() + DELIMITER + vehicle.getMake() + DELIMITER +
+                        vehicle.getModel() + DELIMITER + vehicle.getVehicleType() + DELIMITER + vehicle.getColor() + DELIMITER +
+                        vehicle.getOdometer() + DELIMITER + vehicle.getPrice());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.err.println("Error writing dealership file: " + e.getMessage());
+        }
     }
 }

@@ -1,11 +1,18 @@
 package com.pluralsight.models;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class DealershipTest {
     private Dealership dealership;
+
+    @BeforeEach
+    public void setUp() {
+        dealership = new Dealership("Test Dealership", "123 Test St", "123-456-7890");
+    }
 
     @Test
     public void testAddVehicle_shouldAddVehicle_toDealership() {
@@ -19,7 +26,6 @@ public class DealershipTest {
         assertTrue(dealership.getAllVehicles().contains(vehicle));
     }
 
-
     @Test
     public void testRemoveVehicle_shouldRemoveVehicle_fromDealership() {
         // Arrange
@@ -32,6 +38,4 @@ public class DealershipTest {
         // Assert
         assertFalse(dealership.getAllVehicles().contains(vehicle));
     }
-
-
 }

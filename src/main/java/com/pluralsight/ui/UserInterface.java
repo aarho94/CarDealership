@@ -7,26 +7,22 @@ import com.pluralsight.models.Vehicle;
 import java.util.List;
 import java.util.Scanner;
 
-public class UserInterface
-{
+public class UserInterface {
     private Dealership dealership;
     private Scanner scanner;
 
-    public UserInterface()
-    {
+    public UserInterface() {
         this.scanner = new Scanner(System.in);
         init();
     }
 
-    private void init()
-    {
+    private void init() {
         DealershipFileManager dealershipFileManager = new DealershipFileManager();
         this.dealership = dealershipFileManager.getDealership();
     }
 
-    public void display()
-    {
-        System.out.println("Welcome to the Car Dealership Inventory Tracking App!");
+    public void display() {
+        System.out.println("Welcome to VehicleVault!");
 
         while (true) {
             displayMenu();
@@ -70,8 +66,7 @@ public class UserInterface
         }
     }
 
-    private void displayMenu()
-    {
+    private void displayMenu() {
         System.out.println("Menu:");
         System.out.println("1. Find vehicles within a price range");
         System.out.println("2. Find vehicles by make/model");
@@ -86,8 +81,7 @@ public class UserInterface
         System.out.print("Enter your choice: ");
     }
 
-    private void processGetByPriceRequest()
-    {
+    private void processGetByPriceRequest() {
         System.out.print("Enter minimum price: ");
         double minPrice = scanner.nextDouble();
         System.out.print("Enter maximum price: ");
@@ -97,8 +91,7 @@ public class UserInterface
         displayVehicles(vehicles);
     }
 
-    private void processGetByMakeModelRequest()
-    {
+    private void processGetByMakeModelRequest() {
         System.out.print("Enter make: ");
         String make = scanner.next();
         System.out.print("Enter model: ");
@@ -108,8 +101,7 @@ public class UserInterface
         displayVehicles(vehicles);
     }
 
-    private void processGetByYearRequest()
-    {
+    private void processGetByYearRequest() {
         System.out.print("Enter minimum year: ");
         int minYear = scanner.nextInt();
         System.out.print("Enter maximum year: ");
@@ -119,8 +111,7 @@ public class UserInterface
         displayVehicles(vehicles);
     }
 
-    private void processGetByColorRequest()
-    {
+    private void processGetByColorRequest() {
         System.out.print("Enter color: ");
         String color = scanner.next();
 
@@ -128,8 +119,7 @@ public class UserInterface
         displayVehicles(vehicles);
     }
 
-    private void processGetByMileageRequest()
-    {
+    private void processGetByMileageRequest() {
         System.out.print("Enter minimum mileage: ");
         int minMileage = scanner.nextInt();
         System.out.print("Enter maximum mileage: ");
@@ -139,8 +129,7 @@ public class UserInterface
         displayVehicles(vehicles);
     }
 
-    private void processGetByVehicleTypeRequest()
-    {
+    private void processGetByVehicleTypeRequest() {
         System.out.print("Enter vehicle type (car, truck, SUV, van): ");
         String vehicleType = scanner.next();
 
@@ -148,14 +137,12 @@ public class UserInterface
         displayVehicles(vehicles);
     }
 
-    private void processGetAllVehiclesRequest()
-    {
+    private void processGetAllVehiclesRequest() {
         List<Vehicle> vehicles = dealership.getAllVehicles();
         displayVehicles(vehicles);
     }
 
-    private void displayVehicles(List<Vehicle> vehicles)
-    {
+    private void displayVehicles(List<Vehicle> vehicles) {
         if (vehicles.isEmpty()) {
             System.out.println("No vehicles found.");
         } else {
@@ -166,8 +153,7 @@ public class UserInterface
         }
     }
 
-    private void processAddVehicleRequest()
-    {
+    private void processAddVehicleRequest() {
         System.out.println("Enter vehicle details:");
         System.out.print("VIN: ");
         int vin = scanner.nextInt();
@@ -220,5 +206,6 @@ public class UserInterface
         }
     }
 }
+
 
 
