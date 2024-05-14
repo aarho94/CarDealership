@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# CarDealership
-=======
 # CarDealership
 
 Phase One: Data Model
